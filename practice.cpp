@@ -1,30 +1,25 @@
 #include<iostream>
 using namespace std;
  
-struct Person{
-    char name[100];
+struct employee{
+    int eId;
+    char favChar;
     int age;
-    double salary;
+    float salary;
+
 };
 
 int main(){
-    Person p1;
-    cout<<"Enter persons details"<<endl;
-
-    cout<<"Perons Name:"<<endl;
-    cin.getline(p1.name, 100);
-
-    cout<<"Person Age:"<<endl;
-    cin>>p1.age;
-
-    cout<<"Person Salary:"<<endl;
-    cin>>p1.salary;
-
-    cout<<"Person Details are:"<<endl;
-
-    cout<<"Name:"<<p1.name<<endl;
-    cout<<"Age:"<<p1.age<<endl;
-    cout<<"Salary:"<<p1.salary<<endl;
+    struct employee zaynab;
+    zaynab.eId = 1;
+    zaynab.favChar = 'a';
+    zaynab.age = 25;
+    zaynab.salary = 15000000;
+    
+    cout<<"The employee id is "<<zaynab.eId<<endl;
+    cout<<"The fav char is "<<zaynab.favChar<<endl;
+    cout<<"The age is "<<zaynab.age<<endl;
+    cout<<"The salary is "<<zaynab.salary<<endl;
 
  return 0;   
 }
