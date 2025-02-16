@@ -1,36 +1,59 @@
 #include<iostream>
 using namespace std;
 
-struct Engine {
-    string engineType;
-    int horsepower;
+struct Address {
+    string street;
+    string city;
+    string state;
+    int zipCode;
 };
 
-struct Car {
-    string brand;
-    string model;
-    int year;
-    Engine engine;  // struct inside another struct
+struct Student {
+    string name;
+    int age;
+    Address address;  // Nested struct
 };
 
-void printCarInfo(Car car) {
-    cout << "Car Brand: " << car.brand << endl;
-    cout << "Car Model: " << car.model << endl;
-    cout << "Car Year: " << car.year << endl;
-    cout << "Engine Type: " << car.engine.engineType << endl;
-    cout << "Engine Horsepower: " << car.engine.horsepower << endl;
+struct School {
+    string name;
+    string principal;
+    Student students[3];  // Array of Student structs
+};
+
+void printSchoolInfo(School school) {
+    cout << "School Name: " << school.name << endl;
+    cout << "Principal: " << school.principal << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << "Student " << i + 1 << " Name: " << school.students[i].name << endl;
+        cout << "Student " << i + 1 << " Age: " << school.students[i].age << endl;
+        cout << "Student " << i + 1 << " Address: " 
+             << school.students[i].address.street << ", "
+             << school.students[i].address.city << ", "
+             << school.students[i].address.state << ", "
+             << school.students[i].address.zipCode << endl;
+    }
 }
 
 int main() {
-    Car myCar;  // Declare the car object
+    School mySchool;
 
-    myCar.brand = "Ford";
-    myCar.model = "Mustang";
-    myCar.year = 2023;
-    myCar.engine.engineType = "V8";  // Accessing the inner struct's members
-    myCar.engine.horsepower = 450;
+    mySchool.name = "Green Valley High";
+    mySchool.principal = "Mr. Smith";
 
-    printCarInfo(myCar);  // Pass the object to the function
+    // Initialize the students
+    mySchool.students[0].name = "John Doe";
+    mySchool.students[0].age = 15;
+    mySchool.students[0].address = {"123 Elm St", "Green Valley", "CA", 12345};
+
+    mySchool.students[1].name = "Jane Smith";
+    mySchool.students[1].age = 16;
+    mySchool.students[1].address = {"456 Oak St", "Green Valley", "CA", 12346};
+
+    mySchool.students[2].name = "Alex Johnson";
+    mySchool.students[2].age = 14;
+    mySchool.students[2].address = {"789 Pine St", "Green Valley", "CA", 12347};
+
+    printSchoolInfo(mySchool);
 
     return 0;
 }
