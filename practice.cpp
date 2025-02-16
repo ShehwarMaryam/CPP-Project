@@ -1,26 +1,29 @@
 #include<iostream>
 using namespace std;
  
-struct employee{
-    int eId;
-    char favChar;
-    int age;
-    float salary;
+struct Smartphone{
+    string name;
+    int storage;
+    string color;
+    float price;
 
 };
 
+void printSmartphoneInfo(Smartphone smartphone1){
+    cout<<"The name of the smartphone is "<<smartphone1.name<<endl;
+    cout<<"The storage of the smartphone is "<<smartphone1.storage<<endl;
+    cout<<"The color of the smartphone is "<<smartphone1.color<<endl;
+    cout<<"The price of the smartphone is "<<smartphone1.price<<endl;
+}
 int main(){
-    struct employee zaynab;
-    zaynab.eId = 1;
-    zaynab.favChar = 'a';
-    zaynab.age = 25;
-    zaynab.salary = 15000000;
+    Smartphone smartphone1;
+    smartphone1.name = "Samsung Galaxy S21";
+    smartphone1.storage = 128;
+    smartphone1.color = "Phantom Gray";
+    smartphone1.price = 799.99;
+    printSmartphoneInfo(smartphone1);
     
-    cout<<"The employee id is "<<zaynab.eId<<endl;
-    cout<<"The fav char is "<<zaynab.favChar<<endl;
-    cout<<"The age is "<<zaynab.age<<endl;
-    cout<<"The salary is "<<zaynab.salary<<endl;
-
+   
  return 0;   
 }
 
